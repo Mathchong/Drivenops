@@ -6,19 +6,20 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:deploy": "prisma migrate deploy",
-    "prisma:seed": "prisma db seed",
-    "dev": "nodemon src/server.ts",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:deploy": "npx prisma migrate deploy",
+    "prisma:seed": "npx prisma db seed",
+    "dev": "dotenv -e .env.dev nodemon src/server.ts",
+    "dev-docker": "nodemon src/server.ts",
     "test": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test cross-env NODE_OPTIONS=--experimental-vm-modules jest -- -i",
-    "start": "npm run prisma:deploy && node dist/src/server.js"
+    "start": "npx prisma migrate dev && npx prisma db seed && node dist/src/server.js"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
-  },
+  }, 
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "ISC", 
   "dependencies": {
     "@prisma/client": "^4.1.1",
     "cors": "^2.8.5",
