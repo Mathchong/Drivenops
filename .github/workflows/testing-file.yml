@@ -20,4 +20,4 @@ jobs:
           envkey_DATABASE_URL: "postgres://postgres:postgres@postgres_db:5432/banco"
           file_name: .env.test
       - name: Run Tests
-        run: docker-compose -f docker-compose-test.yml up
+        run: docker-compose -f docker-compose-test.yml run node_app npm run test
