@@ -1,5 +1,6 @@
 name: Testing file on Pull Request
 on: [pull_request]
+
 jobs:
   Test-File:
     runs-on: ubuntu-latest
@@ -9,4 +10,4 @@ jobs:
       - name: Checkout Repository Code
         uses: actions/checkout@v3
       - name: List Files
-        run: ls ${{ github.workspace }}
+        run: cd ${{ github.workspace }}/back-end && ls
