@@ -8,3 +8,5 @@ jobs:
         run: echo "Estou iniciando"
       - name: Checkout Repository Code
         uses: actions/checkout@v3
+      - name: List Files
+        run: ls ${{ github.workspace }}
